@@ -188,9 +188,13 @@ public class SourceViewModel extends ViewModel {
                                 str = new String[]{urlInfo.urls};
                             }
                             List<Movie.Video.UrlBean.UrlInfo.InfoBean> infoBeanList = new ArrayList<>();
+                            int i = 1;
                             for (String s : str) {
                                 if (s.contains("$")) {
                                     infoBeanList.add(new Movie.Video.UrlBean.UrlInfo.InfoBean(s.substring(0, s.indexOf("$")), s.substring(s.indexOf("$") + 1)));
+                                }else{
+                                    infoBeanList.add(new Movie.Video.UrlBean.UrlInfo.InfoBean("第" + i + "集", s));
+                                    i = i + 1;
                                 }
                             }
                             urlInfo.beanList = infoBeanList;
